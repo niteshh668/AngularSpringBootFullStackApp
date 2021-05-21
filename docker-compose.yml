@@ -1,4 +1,4 @@
-version: '1'
+version: '3.3'
 
 services:
 
@@ -15,7 +15,6 @@ services:
       - flight-finder-rest-api
     networks:
       - fullstack-application-network
-      -
   #Backend Spring boot api
   flight-finder-rest-api:
  # If image from docker hub is needed un commment out line below and comment out lines 23 & 24 (build and container_name)
