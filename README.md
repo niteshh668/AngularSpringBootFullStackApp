@@ -5,9 +5,6 @@ docker containers
 - Java backend (Spring Boot) with in memory H2 DB 
 - Angular frontend
 
-The entry point for a user is a website which is available under the
-address: **http://localhost:4200/**
-
 ---
 
 ### Prerequisites
@@ -22,6 +19,9 @@ An entire application can be ran with a single command in a terminal under /Angu
 ```
 $ docker-compose up -d
 ```
+
+The entry point for a user is a website which is available under the
+address: **http://localhost:4200/**
 
 If you want to stop it use following command:
 
