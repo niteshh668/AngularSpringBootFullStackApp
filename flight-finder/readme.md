@@ -1,46 +1,42 @@
 # Flight Finder Rest API
 
-### Dockerfile
+This is a simple web app to list flights originating from a station. It is made up of two 
+docker containers
+- Java backend (Spring Boot) with in memory H2 DB 
+- Angular frontend
 
-```text
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-ADD target/flight-finder-rest-api.jar flight-finder-rest-api.jar
-ENTRYPOINT ["sh", "-c", "java -jar /flight-finder-rest-api.jar"]
+The entry point for a user is a website which is available under the
+address: **http://localhost:4200/**
+
+---
+
+### Prerequisites
+
+In order to run this application you need docker running on your local machine
+
+---
+### How to run it?
+
+An entire application can be ran with a single command in a terminal under /fullstack-app-flightfinder
+
+```
+$ docker-compose up -d
 ```
 
-### Build and run docker image from the project root folder
-under project flight-finder, run following commands
+If you want to stop it use following command:
 
-- docker build . -t niteshreddychalla/flight-finder-rest-api
-- docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
-
-
-UI
-
-docker build . -t niteshreddychalla/flight-finder-ui
-
-
-### Pulling the image directly from dockerhub
-
-```text
-You can skip above step and directly pull image from dockerhub.
-
-Below command will pull image from dockerhub and run it on port 8080
 ```
-- docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
+$ docker-compose down
+```
+---
 
+### Rest API
 
-UI
+Expose endpoints for UI to return list of stations with matching keyword and list of 
+flights originating from a source station. 
 
-- docker run -p 4200:80 niteshreddychalla/flight-finder-ui
-
-
-### Rest Endpoints
-
-
-```text
-Fetch flight info for displaying on UI
+Data for the service is loaded into in memory h2 db using script located under flight-finder/src/main/resources/data.sql 
+```
 http://localhost:8080/flight-finder/flights/{sourceStation}
 ```
 - E.g http://localhost:8080/flight-finder/flights/LAX
@@ -84,7 +80,7 @@ http://localhost:8080/flight-finder/flights/{sourceStation}
 
 ```
 ```text
-Fetch stations list for autosuggest
+Fetch list of stations for autosuggest
 http://localhost:8080/flight-finder/stations/{stationKeyword}
 ```
  
@@ -103,9 +99,42 @@ http://localhost:8080/flight-finder/stations/{stationKeyword}
 ]
 ```
 
-
-## Rest API UI link: 
+#### Rest API Swagger link which html view of endpoints: 
 
 - http://localhost:8080/swagger-ui.html
 
+#### Flight finder ui (Frontend)
+
+Angular frontend for displaying flight details
+
+Dockerfile can be found here:  flight-finder-ui/Dockerfile
+App can be entered using link: **http://localhost:4200/**
+
+
+####  Way to run the docker containers separately if docker compose does not work (Optional)
+
+```text
+Below command will pull images from dockerhub and run it locally
+```
+##### Backend
+- docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
+
+##### UI
+
+- docker run -p 4200:80 niteshreddychalla/flight-finder-ui
+
+#### Build the images for backend and frontend (Optional)
+
+under project flight-finder, run following commands
+###### Backend:
+
+- docker build . -t niteshreddychalla/flight-finder-rest-api
+- docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
+
+######UI:
+under project flight-finder-ui, run following commands
+
+
+- docker build . -t niteshreddychalla/flight-finder-ui
+- docker run -p 4200:80 niteshreddychalla/flight-finder-ui 
 
