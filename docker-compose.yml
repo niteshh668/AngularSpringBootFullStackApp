@@ -1,0 +1,32 @@
+version: '1'
+
+services:
+
+  #Front-end Angular Application
+  flight-finder-ui:
+  # If image from docker hub is needed un commment out line below and comment out lines 23 & 24 (build and container_name)
+  # image: niteshreddychalla/flight-finder-ui
+    build: flight-finder-ui
+    container_name: flight-finder-ui
+    ports:
+      - "4200:80"
+    restart: always
+    depends_on: # Start the depends_on first
+      - flight-finder-rest-api
+    networks:
+      - fullstack-application-network
+      -
+  #Backend Spring boot api
+  flight-finder-rest-api:
+ # If image from docker hub is needed un commment out line below and comment out lines 23 & 24 (build and container_name)
+ #  image: niteshreddychalla/flight-finder-rest-api
+    build: flight-finder
+    container_name: flight-finder-rest-api
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - fullstack-application-network
+
+networks:
+  fullstack-application-network:

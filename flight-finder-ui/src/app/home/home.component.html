@@ -1,0 +1,53 @@
+<!--  Ceating a very basic html for the view, lot of styling and other improvements can be done to this component. 
+E.g pagination and sorting can be implemented on the client or server side to display data -->
+
+
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      Welcome to Flight Finder Application
+    </h1>
+  </div>
+    <div class="mt-3 col-lg-12">
+      Enter the source station: <p-autoComplete [(ngModel)]="originstation" [suggestions]="filteredStations"
+        (completeMethod)="search($event)" [immutable]="false" [dropdown]="false"></p-autoComplete>
+      <br />
+    </div>
+    <div class="mt-3 col-lg-12">
+      <button class="btn btn-success" class="btn btn-success" (click)=handleFindFlights()>Find Flights</button>
+    </div>
+    <br />
+    <div class="table-responsive">
+
+      <table class="table table-bodered table-condensed">
+        <thead>
+          <tr>
+            <th>Flight#</th>
+            <th>OriginGate</th>
+            <th>Origin</th>
+            <th>DestGate</th>
+            <th>Dest</th>
+            <th>OUTGmt</th>
+            <th>INGmt</th>
+            <th>ONGmt</th>
+            <th>DestinationCity</th>
+            <th>OriginCity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of fligts">
+            <td>{{flight.fltNum}}</td>
+            <td>{{flight.scheduledOriginGate}}</td>
+            <td>{{flight.origin}}</td>
+            <td>{{flight.scheduledDestinationGate}}</td>
+            <td>{{flight.destination}}</td>
+            <td>{{flight.outGmt | date:'short'}}</td>
+            <td>{{flight.inGmt | date:'short'}}</td>
+            <td>{{flight.onGmt | date:'short'}}</td>
+            <td>{{flight.destinationFullName}}</td>
+            <td>{{flight.originFullName}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
