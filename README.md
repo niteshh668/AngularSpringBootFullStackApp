@@ -17,7 +17,7 @@ In order to run this application you need docker running on your local machine
 ---
 ### How to run it?
 
-An entire application can be ran with a single command in a terminal under /fullstack-app-flightfinder
+An entire application can be ran with a single command in a terminal under /AngularSpringBootFullStackApp
 
 ```
 $ docker-compose up -d
@@ -98,24 +98,25 @@ http://localhost:8080/flight-finder/stations/{stationKeyword}
 "SLA"
 ]
 ```
-
+---
 #### Rest API Swagger link which html view of endpoints: 
 
 - http://localhost:8080/swagger-ui.html
-
+---
 #### Flight finder ui (Frontend)
-
+---
 Angular frontend for displaying flight details
 
 Dockerfile can be found here:  flight-finder-ui/Dockerfile
 App can be entered using link: **http://localhost:4200/**
 
-
+---
 ####  Way to run the docker containers separately if docker compose does not work (Optional)
 
 ```text
 Below command will pull images from dockerhub and run it locally
 ```
+---
 ##### Backend
 - docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
 
@@ -131,7 +132,7 @@ under project flight-finder, run following commands
 - docker build . -t niteshreddychalla/flight-finder-rest-api
 - docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
 
-######UI:
+###### UI:
 under project flight-finder-ui, run following commands
 
 
