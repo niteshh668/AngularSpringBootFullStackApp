@@ -20,13 +20,13 @@ In order to run this application you need docker running on your local machine
 An entire application can be ran with a single command in a terminal under /AngularSpringBootFullStackApp
 
 ```
-$ docker-compose up -d
+$ docker -compose up -d
 ```
 
 If you want to stop it use following command:
 
 ```
-$ docker-compose down
+$ docker -compose down
 ```
 ---
 
