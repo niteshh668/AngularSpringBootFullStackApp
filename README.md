@@ -104,7 +104,7 @@ http://localhost:8080/flight-finder/stations/{stationKeyword}
 - http://localhost:8080/swagger-ui.html
 ---
 #### Flight finder ui (Frontend)
----
+
 Angular frontend for displaying flight details
 
 Dockerfile can be found here:  flight-finder-ui/Dockerfile
@@ -116,15 +116,14 @@ App can be entered using link: **http://localhost:4200/**
 ```text
 Below command will pull images from dockerhub and run it locally
 ```
----
+
 ##### Backend
 - docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
 
 ##### UI
-
 - docker run -p 4200:80 niteshreddychalla/flight-finder-ui
 
-#### Build the images for backend and frontend (Optional)
+#### Build the images for backend and frontend separately (Optional)
 
 under project flight-finder, run following commands
 ###### Backend:
@@ -135,7 +134,7 @@ under project flight-finder, run following commands
 ###### UI:
 under project flight-finder-ui, run following commands
 
-
 - docker build . -t niteshreddychalla/flight-finder-ui
 - docker run -p 4200:80 niteshreddychalla/flight-finder-ui 
 
+Launch the UI page now **http://localhost:4200/**
