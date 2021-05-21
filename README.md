@@ -114,25 +114,26 @@ App can be entered using link: **http://localhost:4200/**
 ####  Way to run the docker containers separately if docker compose does not work (Optional)
 
 ```text
-Below command will pull images from dockerhub and run it locally
+Below commands will pull images from dockerhub and run it locally
 ```
+##### Backend 
 
-##### Backend
 - docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
 
 ##### UI
 - docker run -p 4200:80 niteshreddychalla/flight-finder-ui
 
+---
 #### Build the images for backend and frontend separately (Optional)
 
-under project flight-finder, run following commands
+under backend project flight-finder, run following commands
 ###### Backend:
 
 - docker build . -t niteshreddychalla/flight-finder-rest-api
 - docker run -p 8080:8080 niteshreddychalla/flight-finder-rest-api 
 
 ###### UI:
-under project flight-finder-ui, run following commands
+under UI project flight-finder-ui, run following commands
 
 - docker build . -t niteshreddychalla/flight-finder-ui
 - docker run -p 4200:80 niteshreddychalla/flight-finder-ui 
